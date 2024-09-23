@@ -17,11 +17,11 @@
     "commands": [
       {
         "command": "laravelLogs.openLatestLog",
-        "title": "Laravel Logs: Open Latest Log"
+        "title": "Laravel Logs: Open Log"
       },
       {
         "command": "laravelLogs.addLogCode",
-        "title": "Laravel Logs: Add Log Code"
+        "title": "Laravel Logs: Insert Log Snippet"
       }
     ],
     "keybindings": [
@@ -36,22 +36,30 @@
         "mac": "cmd+shift+i"
       }
     ],
-    "menus": {
-      "editor/context": [
-        {
-          "command": "laravelLogs.addLogCode",
-          "group": "1_modification",
-          "when": "editorLangId == php"
-        }
-      ]
+"menus": {
+  "editor/context": [
+    {
+      "command": "laravelLogs.addLogCode",
+      "group": "1_modification",
+      "when": "editorLangId == php"
     },
+    {
+      "command": "laravelLogs.openLatestLog",
+      "group": "navigation"
+    }
+  ]
+},
     "configuration": [
       {
         "title": "Laravel Logs",
         "properties": {
           "laravelLogs.defaultLogLevel": {
             "type": "string",
-            "enum": ["info", "warning", "error"],
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
             "default": "info",
             "description": "Default log level for inserted log code"
           }

@@ -58,22 +58,12 @@ function openLatestLog() {
     // Open file in editor
     const latestLogFile = fileStats[0].name;
     vscode.workspace.openTextDocument(latestLogFile).then((doc) => {
-        // Get last line that starts with the pattern [timestamp]
-        const pattern = /^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]/;
-        let lineNumber = 0;
-        for (let i = doc.lineCount - 1; i >= 0; i--) {
-            const line = doc.lineAt(i);
-            if (pattern.test(line.text)) {
-                lineNumber = i;
-                break;
-            }
-        }
-
-        // Open file and scroll to that line
         vscode.window.showTextDocument(doc).then((editor) => {
+            // Scroll to the last line of the file
+            const lastLine = doc.lineCount - 1;
             const range = new vscode.Range(
-                new vscode.Position(lineNumber, 0),
-                new vscode.Position(lineNumber, 21) // 21 is the length of the timestamp
+                new vscode.Position(lastLine, 0),
+                new vscode.Position(lastLine, 0)
             );
             editor.revealRange(range, vscode.TextEditorRevealType.InCenter);
             editor.selection = new vscode.Selection(range.start, range.end);
