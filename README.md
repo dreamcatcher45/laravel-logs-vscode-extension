@@ -1,71 +1,70 @@
-# laravel-logs README
+# Laravel Logs
 
-This is the README for your extension "laravel-logs". After writing up a brief description, we recommend including the following sections.
+Laravel Logs is a Visual Studio Code extension designed to enhance the logging experience for Laravel developers. It provides quick access to log files and simplifies the process of adding log statements to your code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. **Open Latest Log**: Quickly open and view the most recent Laravel log file.
+2. **Add Log Code**: Easily insert log statements into your PHP files.
+3. **Configurable Log Level**: Set your preferred default log level for inserted log statements.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Open Visual Studio Code
+2. Press `Ctrl+P` (or `Cmd+P` on macOS) to open the Quick Open dialog
+3. Type `ext install laravel-logs` and press Enter
+4. Click the Install button to install the extension
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Usage
+
+### Opening the Latest Log
+
+There are four ways to open the latest log file:
+
+1. Use the keyboard shortcut: `Ctrl+Shift+L` (or `Cmd+Shift+L` on macOS)
+2. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`), then type and select "Laravel Logs: Open Latest Log"
+3. Right-click anywhere in the editor and select "Laravel Logs: Open Latest Log" from the context menu
+4. Click on the "Laravel Logs: Open Latest Log" option in the explorer view title menu
+
+When opened, the log file will automatically scroll to the last line.
+
+### Adding Log Code
+
+To add a log statement to your PHP file:
+
+1. Place your cursor where you want to insert the log statement
+2. Use the keyboard shortcut: `Ctrl+Shift+I` (or `Cmd+Shift+I` on macOS)
+3. Alternatively, right-click and select "Laravel Logs: Add Log Code" from the context menu (only available in PHP files)
+
+The extension will automatically add the necessary `use` statement if it's not already present in the file.
+
+## Configuration
+
+You can configure the default log level used when inserting log statements:
+
+1. Open VS Code settings (`Ctrl+,` or `Cmd+,`)
+2. Search for "Laravel Logs"
+3. Set the "Default Log Level" to your preferred level (info, warning, or error)
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- This extension requires a Laravel project structure to function correctly.
+- The project must have a `storage/logs` directory for log file access.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- The extension currently only supports single-workspace environments.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release of Laravel Logs extension.
 
-Initial release of ...
+## Contributing
 
-### 1.0.1
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Fixed issue #.
+## License
 
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the [MIT License](LICENSE).
