@@ -1,0 +1,81 @@
+{
+  "name": "laravel-logs",
+  "displayName": "Laravel Logs",
+  "description": "Laravel log viewer and log code insertion tool",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:php"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "laravelLogs.openLatestLog",
+        "title": "Laravel Logs: Open Latest Log"
+      },
+      {
+        "command": "laravelLogs.addLogCode",
+        "title": "Laravel Logs: Add Log Code"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "laravelLogs.openLatestLog",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l"
+      },
+      {
+        "command": "laravelLogs.addLogCode",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "laravelLogs.addLogCode",
+          "group": "1_modification",
+          "when": "editorLangId == php"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Laravel Logs",
+        "properties": {
+          "laravelLogs.defaultLogLevel": {
+            "type": "string",
+            "enum": ["info", "warning", "error"],
+            "default": "info",
+            "description": "Default log level for inserted log code"
+          }
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.93.0",
+    "@types/mocha": "^10.0.7",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^9.9.1",
+    "typescript": "^5.5.4",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
